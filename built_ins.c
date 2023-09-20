@@ -58,6 +58,7 @@ int built_in(char *comnd)
 	if (cmp_str(comnd, "env") == 0)
 	{
 		env_dis();
+		return (1);
 	}
 	return (0);
 }
