@@ -59,8 +59,6 @@ int built_in(char *comnd)
 	{
 		env_dis();
 	}
-	/*	if (cmp_str(comnd, "exit") == 0)
-		exit(EXIT_SUCCESS);
-		*/	return (0);
+	return (0);
 }
 
