@@ -48,7 +48,6 @@ void read_cmd(char *comnd)
 	}
 	handle_comment(comnd);
 
-
 }
 
 /**
@@ -122,8 +121,8 @@ int main(void)
 	{
 		prompt();
 		read_cmd(comnd);
-		built_in(comnd);
-		exec_cmnd(comnd);
+		if (!built_in(comnd))
+			exec_cmnd(comnd);
 
 	}
 	return (0);
