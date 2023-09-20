@@ -10,13 +10,13 @@
 
 void handle_comment(char *comnd)
 {
-        int k = 0;
+	int k = 0;
 
-        while (comnd[k])
-        {
-                if (comnd[k] == '#')
-                        comnd[k] = '\0';
-                k++;
-        }
+	while (comnd[k])
+	{
+		if (comnd[k] == '#')
+			comnd[k] = '\0';
+		k++;
+	}
 }
 
