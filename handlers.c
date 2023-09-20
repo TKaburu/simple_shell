@@ -15,7 +15,7 @@ void handle_comment(char *comnd)
 	while (comnd[k])
 	{
 		if (comnd[k] == '#')
-		{	
+		{
 			comnd[k] = '\0';
 			break;
 		}
