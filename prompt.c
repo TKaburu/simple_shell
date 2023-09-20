@@ -26,6 +26,7 @@ void read_cmd(char *comnd)
 	ssize_t input;
 	int k = 0;
 
+	mem_set(comnd, 0, MAX_PROMPT);
 	input = read(STDIN_FILENO, comnd, MAX_PROMPT);
 	if (input == -1)
 	{
@@ -39,6 +40,13 @@ void read_cmd(char *comnd)
 	}
 	if (input == '\0' || input == EOF)
 		exit(EXIT_SUCCESS);
+	if (input == 0)
+	{
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "\n", 1);
+		exit(EXIT_SUCCESS);
+	}
+	handle_comment(comnd);
 
 }
 
@@ -53,15 +61,15 @@ void read_cmd(char *comnd)
 
 char **split(char *comnd, char **store)
 {
-	char *point;
-	char *delim = " \n\t";
+	char *point = NULL;
+	char *del = " \n\t\r";
 	int k = 0;
 
-	point = strtok(comnd, delim);
+	point = strtok(comnd, del);
 	while (point)
 	{
 		store[k++] = point;
-		point = strtok(NULL, delim);
+		point = strtok(NULL, del);
 	}
 	store[k] = NULL;
 	return (store);
@@ -118,3 +126,4 @@ int main(void)
 	}
 	return (0);
 }
+
