@@ -47,7 +47,7 @@ void read_cmd(char *comnd)
 		exit(EXIT_SUCCESS);
 	}
 	handle_comment(comnd);
-	
+
 
 }
 
