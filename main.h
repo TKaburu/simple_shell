@@ -44,5 +44,11 @@ char *str_tok(char *string, const char *del);
 
 /* handlers function*/
 void handle_comment(char *comnd);
+
+/* Built in functions */
+
+void env_dis(void);
+int built_in(char *comnd);
+void ex_it(char *comnd);
 #endif
 
