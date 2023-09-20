@@ -33,6 +33,16 @@ const char *chr_str(const char *t, char k);
 int a_toi(char *t);
 int cmpn_str(const char *str1, const char *str2, size_t n);
 
+/* Memory helpers */
+char *dup_str(char *str);
+void *re_alloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *mem_set(char *s, char b, unsigned int n);
 
+/*custom functions */
 
+char *str_tok(char *string, const char *del);
+
+/* handlers function*/
+void handle_comment(char *comnd);
 #endif
+
