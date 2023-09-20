@@ -33,7 +33,7 @@ void ex_it(char *comnd)
 	/*I need to check 1st if there is an argument...I think*/
 
 	if (comnd[0] == '\0' || comnd[1] == '\0')
-		exit(EXIT_SUCCESS);
+		exit(EXIT_FAILURE);
 	else
 		status = a_toi(&comnd[1]);
 	if (status == 0 && comnd[1] != '0')
@@ -53,13 +53,14 @@ void ex_it(char *comnd)
 
 int built_in(char *comnd)
 {
-	if (cmp_str(comnd, "env") == 0)
-	{
-		if (comnd[0] == '\0')
-			env_dis();
-	}
 	if (cmp_str(comnd, "exit") == 0)
 		exit(EXIT_SUCCESS);
-	return (0);
+	if (cmp_str(comnd, "env") == 0)
+	{
+		env_dis();
+	}
+	/*	if (cmp_str(comnd, "exit") == 0)
+		exit(EXIT_SUCCESS);
+		*/	return (0);
 }
 
