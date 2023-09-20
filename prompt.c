@@ -98,7 +98,11 @@ void exec_cmnd(char *comnd)
 	else if (baby == 0)
 	{
 		split(comnd, arg);
-		arg[0] = comnd;
+/*		if (built_in(arg[0]) != 0)
+        	{
+            		exit(EXIT_SUCCESS);
+        	}
+*/		arg[0] = comnd;
 		if (execve(arg[0], arg, environ) == -1)
 		{
 			perror("./hsh");
