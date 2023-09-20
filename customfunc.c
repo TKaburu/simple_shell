@@ -46,11 +46,3 @@ char *str_tok(char *string, const char *del)
 	return (token);
 }
 
-/**
- * get_line - This function reads line from stdin like getline
- *
- *
- *
- *
- *
- */
