@@ -47,6 +47,7 @@ void read_cmd(char *comnd)
 		exit(EXIT_SUCCESS);
 	}
 	handle_comment(comnd);
+	
 
 }
 
@@ -121,6 +122,7 @@ int main(void)
 	{
 		prompt();
 		read_cmd(comnd);
+		built_in(comnd);
 		exec_cmnd(comnd);
 
 	}
