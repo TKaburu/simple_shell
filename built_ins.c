@@ -23,7 +23,7 @@ void env_dis(void)
  * Return: 0 on succes
  */
 
-void cd(char **comnd)
+/*void cd(char **comnd)
 {
 	if (comnd == NULL)
 		return (NULL);
@@ -46,7 +46,7 @@ void cd(char **comnd)
 			return (NULL);
 	}
 }
-
+*/
 
 /**
  * ex_it - This function exits the shell it a status
@@ -91,11 +91,11 @@ int built_in(char *comnd)
 		env_dis();
 		return (1);
 	}
-	if (cmp_str(comnd, "cd") == 0)
+/*	if (cmp_str(comnd, "cd") == 0)
 	{
 		cd(comnd);
 		return (1);
 	}
-	return (0);
+*/	return (0);
 }
 
