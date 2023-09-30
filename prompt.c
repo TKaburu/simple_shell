@@ -87,7 +87,11 @@ void exec_cmnd(char *comnd)
 	pid_t baby;
 	char *arg[] = { NULL, NULL };
 	int status;
-
+	char *path = NULL;
+	
+	path = locate_comnd(comnd);
+	if (path == NULL)
+		return;
 	baby = fork();
 	if (baby == -1)
 	{
@@ -105,7 +109,10 @@ void exec_cmnd(char *comnd)
 		}
 	}
 	else
+	{
 		wait(&status);
+        }
+	free(path);
 }
 /**
  * main - Entry point of the shell program
