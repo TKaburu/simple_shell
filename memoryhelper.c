@@ -31,6 +31,7 @@ char *dup_str(char *str)
 		t[k] = str[k];
 		k++;
 	}
+	t[k] = '\0';
 	return (t);
 }
 
