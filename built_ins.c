@@ -16,9 +16,40 @@ void env_dis(void)
 	}
 }
 
+/**
+ * cd - This function changes directories
+ * @comnd: users input
+ *
+ * Return: 0 on succes
+ */
+
+void cd(char **comnd)
+{
+	if (comnd == NULL)
+		return (NULL);
+
+	if (comnd[1] == '\0') 
+	{
+		if (chdir(find_env("HOME")) != 0) 
+		{
+			return (NULL);
+		}
+	} 
+	else if (cmp_str(&comnd[1], "~") == 0) 
+	{
+		if (chdir(find_env("OLDPWD")) != 0)
+			return (NULL);
+	} 
+	else 
+	{
+		if (chdir(&comnd[1]) != 0) 
+			return (NULL);
+	}
+}
+
 
 /**
- * ex_it - Thi function exits the shell it a status
+ * ex_it - This function exits the shell it a status
  * @comnd: The argument compared
  *
  */
@@ -54,10 +85,15 @@ void ex_it(char *comnd)
 int built_in(char *comnd)
 {
 	if (cmp_str(comnd, "exit") == 0)
-		exit(EXIT_SUCCESS);
+		ex_it(comnd);
 	if (cmp_str(comnd, "env") == 0)
 	{
 		env_dis();
+		return (1);
+	}
+	if (cmp_str(comnd, "cd") == 0)
+	{
+		cd(comnd);
 		return (1);
 	}
 	return (0);
