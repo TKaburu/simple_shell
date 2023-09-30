@@ -28,21 +28,21 @@ void cd(char **comnd)
 	if (comnd == NULL)
 		return (NULL);
 
-	if (comnd[1] == '\0') 
+	if (comnd[1] == '\0')
 	{
-		if (chdir(find_env("HOME")) != 0) 
+		if (chdir(find_env("HOME")) != 0)
 		{
 			return (NULL);
 		}
-	} 
-	else if (cmp_str(&comnd[1], "~") == 0) 
+	}
+	else if (cmp_str(&comnd[1], "~") == 0)
 	{
 		if (chdir(find_env("OLDPWD")) != 0)
 			return (NULL);
-	} 
-	else 
+	}
+	else
 	{
-		if (chdir(&comnd[1]) != 0) 
+		if (chdir(&comnd[1]) != 0)
 			return (NULL);
 	}
 }

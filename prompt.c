@@ -88,7 +88,7 @@ void exec_cmnd(char *comnd)
 	char *arg[] = { NULL, NULL };
 	int status;
 	char *path = NULL;
-	
+
 	path = locate_comnd(comnd);
 	if (path == NULL)
 		return;
@@ -111,7 +111,7 @@ void exec_cmnd(char *comnd)
 	else
 	{
 		wait(&status);
-        }
+	}
 	free(path);
 }
 /**
