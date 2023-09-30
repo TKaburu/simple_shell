@@ -45,6 +45,11 @@ char *str_tok(char *string, const char *del);
 /* handlers function*/
 void handle_comment(char *comnd);
 
+/* Location function */
+char *find_env(char *name);
+char *find_path(char *path, char *comnd);
+char *locate_comnd(char *comnd);
+
 /* Built in functions */
 
 void env_dis(void);
