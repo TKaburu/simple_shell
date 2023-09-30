@@ -87,12 +87,12 @@ void exec_cmnd(char *comnd)
 	pid_t baby;
 	char *arg[] = { NULL, NULL };
 	int status;
-	char *path = NULL;
+	/*char *path = NULL;*/
 
-	path = locate_comnd(comnd);
+/*	path = locate_comnd(comnd);
 	if (path == NULL)
 		return;
-	baby = fork();
+*/	baby = fork();
 	if (baby == -1)
 	{
 		perror("Error: Failed to create baby");
@@ -112,7 +112,7 @@ void exec_cmnd(char *comnd)
 	{
 		wait(&status);
 	}
-	free(path);
+	/*free(path);*/
 }
 /**
  * main - Entry point of the shell program
